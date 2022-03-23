@@ -1,39 +1,24 @@
-let koalaContainer = document.createElement('div')
+let koalaContainer = <div className="ui items"></div>
 
-koalaContainer.setAttribute('class', 'ui items')
 
 // Koala Card
 // koalas are in './public/koalas.js'
 koalas.forEach(koala => {
-    let koalaCard = document.createElement('div')
-    koalaCard.setAttribute('class', 'item')
-    koalaCard.style.cursor = 'pointer';
+    let koalaCard = <div style="cursor:pointer" className="item"></div>
 
     // Koala Card Image
-    let imageContainer = document.createElement('div')
-    let koalaImage = document.createElement('img')
-
-    imageContainer.setAttribute('class', 'image')
-
-    koalaImage.setAttribute('src', koala.imageURL)
-
-    imageContainer.append(koalaImage)
+    let koalaImage = <img src={koala.imageURL} className="image"></img>
+    let imageContainer = <div>{koalaImage}</div>
 
     // Koala Card Content
-    let koalaContent = document.createElement('div')
-    koalaContent.setAttribute('class', 'content')
+    let koalaContent = <div className="content"></div>
 
-    let header = document.createElement('div')
-    header.setAttribute('class', 'header')
-    header.append(koala.name)
+    let header = <div className="header">{koala.name}</div>
 
-    let descriptionParagraph = document.createElement('p')
-    descriptionParagraph.append(koala.description)
+    let descriptionParagraph = <p>{koala.description}</p>
 
-    let descriptionContainer = document.createElement('div')
-    descriptionContainer.setAttribute('class', 'description')
-    descriptionContainer.append(descriptionParagraph)
-
+    let descriptionContainer = <div className="description">{descriptionParagraph}</div>
+    
     koalaContent.append(
         header,
         descriptionContainer
